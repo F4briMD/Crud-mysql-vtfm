@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base{
+  .section {
+    @apply  py-8 lg:py-24 lg:h-screen flex items-start justify-center   ;
+  }
+  .TableCell {
+    @apply whitespace-nowrap font-medium text-gray-900 dark:text-white;
+  }
+  .inputempleado{
+    @apply border-2 w-full  border-[#d1d5db] rounded-lg bg-[#f9fafb] text-base p-[10px] hover:border-slate-500 transition ;
+  }
+
+  /* .modal {
+    @apply absolute bg-[rgb(0_0_0_/_0.92)] inset-0;
+  }
+  .modal .cerrar-modal {
+    @apply absolute w-12 h-12 cursor-pointer right-12 top-12;
+  }
+  .modal .cerrar-modal img {
+    @apply w-full;
+  }
+  .modal .formulario {
+    @apply max-w-screen-xl w-[40rem] transition-all duration-300 ease-[ease-in] opacity-0;
+  }
+  .modal label {
+    @apply text-[color:var(--blanco)] text-left;
+  }
+  body .modal {
+    @apply overflow-hidden;
+  }
+  .modal .formulario.animar {
+    @apply relative opacity-100;
+  }
+  .modal .formulario.cerrar {
+    @apply opacity-0;
+  } */
+}
