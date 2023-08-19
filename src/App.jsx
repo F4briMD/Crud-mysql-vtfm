@@ -77,7 +77,8 @@ function App() {
 
     {/* <Deletemodal/> */}
 
-    <div className="mx-auto px-3 py-5 max-w-5xl overflow-x-auto text-right bg-slate-600">
+    <div className="mx-auto items-center flex justify-between p-5  max-w-7xl  overflow-x-auto text-right bg-slate-600">
+      <h2 className="text-3xl text-gray-300">Lista Empleados</h2>
       <button type="button"
       onClick={handleNuevoEmpleado}
       className="text-white font-semibold bg-green-700 hover:bg-green-800 py-2 px-4 rounded-lg"

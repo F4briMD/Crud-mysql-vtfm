@@ -76,7 +76,7 @@ app.post('/create', (req, res) => {
 //
 app.get('/empleados', (req, res) => {
 
-    db.query('SELECT * FROM empleados', 
+    db.query('SELECT CONCAT(UCASE(nombre), LOWER(SUBSTRING(nombre FROM 2))) AS nombre, edad, pais, cargo, años FROM empleados', 
         (err, result) => {
             if (err) {
                 console.log(err);

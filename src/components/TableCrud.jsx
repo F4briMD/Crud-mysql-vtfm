@@ -2,7 +2,7 @@
 // import { useState } from "react";
 import { Button, Modal } from "flowbite-react"; // Importar componentes de la biblioteca UI
 import { HiOutlineExclamationCircle } from "react-icons/hi";
-
+import  { useState } from "react";
 
 export const TableCrud = ({
   empleadosList = [],
@@ -13,10 +13,19 @@ export const TableCrud = ({
 }) => {
   // const [openModal, setOpenModal] = useState(false);
 
+  const [currentPage, setCurrentPage] = useState(1); // Estado para almacenar la página actual
+  const elementsPerPage = 10; // Número de elementos por página
+  const totalElements = empleadosList.length; // Total de elementos en la lista
+  const totalPages = Math.ceil(totalElements / elementsPerPage); // Cálculo de las páginas totales
+
+  // Cálculo del rango de elementos a mostrar en la página actual
+  const startIndex = (currentPage - 1) * elementsPerPage;
+  const endIndex = startIndex + elementsPerPage;
+  const elementsToShow = empleadosList.slice(startIndex, endIndex);
   
 
   return (
-    <section className=" mx-auto max-w-5xl overflow-x-auto ">
+    <section className=" mx-auto max-w-7xl overflow-x-auto ">
       <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400 border-[1px] border-gray-600">
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
@@ -44,7 +53,7 @@ export const TableCrud = ({
         </thead>
 
         <tbody>
-          {empleadosList.map((empleado) => (
+          {elementsToShow.map((empleado) => (
             <tr
               key={empleado.id}
               className="bg-white border-b dark:bg-gray-900 dark:border-gray-700"
@@ -115,6 +124,21 @@ export const TableCrud = ({
           ))}
         </tbody>
       </table>
+      <div className="flex justify-center mt-4">
+        <Button
+          onClick={() => setCurrentPage(currentPage - 1)}
+          disabled={currentPage === 1}
+          className='mr-2'
+        >
+          Anterior
+        </Button>
+        <Button
+          onClick={() => setCurrentPage(currentPage + 1)}
+          disabled={currentPage === totalPages}
+        >
+          Siguiente
+        </Button>
+      </div>
     </section>
   );
 };
